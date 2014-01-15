@@ -14,9 +14,10 @@ public class MyActivity extends Activity {
         Game game = new Game(this, null);
 
         //Push the main state
-        game.pushState(new TitleScreen());
+        game.pushState(new GameState());
 
         //View the game
         setContentView(game);
+
     }
 }
