@@ -75,18 +75,16 @@
       <file leaf-file-name="MyActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/src/com/example/module/MyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="5" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="25" column="18" selection-start="660" selection-end="660" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameState.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GameState.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/src/com/example/module/GameState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="111" selection-end="111" vertical-scroll-proportion="0.14119601" vertical-offset="0" max-vertical-offset="602">
+            <state line="24" column="36" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -94,10 +92,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameLayer.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="GameLayer.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/src/com/example/module/GameLayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="24" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
+            <state line="24" column="29" selection-start="517" selection-end="517" vertical-scroll-proportion="0.59302324" vertical-offset="51" max-vertical-offset="765">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#702#703#0" expanded="true" />
+                <element signature="e#740#741#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Level.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/src/com/example/module/Level.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="0" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,10 +119,8 @@
       <file leaf-file-name="Helicopter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/src/com/example/module/Helicopter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="38" selection-start="261" selection-end="261" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="14" column="0" selection-start="263" selection-end="263" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -130,12 +139,12 @@
         <option value="$PROJECT_DIR$/src/main/TitleScreen.java" />
         <option value="$PROJECT_DIR$/application/src/com/example/module/TitleScreen.java" />
         <option value="$PROJECT_DIR$/application/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/application/src/com/example/module/MyActivity.java" />
-        <option value="$PROJECT_DIR$/application/src/com/example/module/Helicopter.java" />
         <option value="$PROJECT_DIR$/application/src/com/example/module/State.java" />
-        <option value="$PROJECT_DIR$/application/src/com/example/module/GameLayer.java" />
         <option value="$PROJECT_DIR$/application/src/com/example/module/Level.java" />
+        <option value="$PROJECT_DIR$/application/src/com/example/module/Helicopter.java" />
+        <option value="$PROJECT_DIR$/application/src/com/example/module/MyActivity.java" />
         <option value="$PROJECT_DIR$/application/src/com/example/module/GameState.java" />
+        <option value="$PROJECT_DIR$/application/src/com/example/module/GameLayer.java" />
       </list>
     </option>
   </component>
@@ -171,8 +180,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -291,6 +298,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -394,6 +403,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -419,19 +441,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -578,8 +587,8 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -603,6 +612,40 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/application/src/com/example/module/MyActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="5" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="493">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/com/example/module/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="111" selection-end="111" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="561">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/com/example/module/GameLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="24" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="578">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
+            <element signature="e#740#741#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/com/example/module/Helicopter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="38" selection-start="261" selection-end="261" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="357">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/res/drawable-ldpi/ic_launcher.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -627,9 +670,23 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/com/example/module/Helicopter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="263" selection-end="263" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/src/com/example/module/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="5" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+        <state line="25" column="18" selection-start="660" selection-end="660" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/com/example/module/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="36" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -638,14 +695,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/src/com/example/module/Level.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="8" selection-start="277" selection-end="277" vertical-scroll-proportion="0.50830567" vertical-offset="0" max-vertical-offset="602">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/src/com/example/module/Helicopter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="38" selection-start="261" selection-end="261" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+        <state line="4" column="0" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -654,18 +704,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/src/com/example/module/GameLayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="24" selection-start="259" selection-end="259" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
+        <state line="24" column="29" selection-start="517" selection-end="517" vertical-scroll-proportion="0.59302324" vertical-offset="51" max-vertical-offset="765">
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/src/com/example/module/GameState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="111" selection-end="111" vertical-scroll-proportion="0.14119601" vertical-offset="0" max-vertical-offset="602">
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
+            <element signature="e#740#741#0" expanded="true" />
           </folding>
         </state>
       </provider>

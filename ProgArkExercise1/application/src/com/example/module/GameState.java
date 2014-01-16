@@ -1,6 +1,7 @@
 package com.example.module;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import sheep.game.State;
 import sheep.game.World;
 
@@ -21,6 +22,7 @@ public class GameState extends State {
 
     @Override
     public void draw (Canvas canvas){
+        canvas.drawColor(Color.WHITE);
         world.draw(canvas);
 
     }

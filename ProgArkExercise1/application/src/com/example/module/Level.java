@@ -1,6 +1,7 @@
 package com.example.module;
 
 import android.graphics.Canvas;
+import sheep.graphics.*;
 
 /**
  * Created by tordly on 15.01.14.
