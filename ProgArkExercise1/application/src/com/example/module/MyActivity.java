@@ -1,5 +1,5 @@
 package com.example.module;
-import android.graphics.Color;
+
 import android.view.Window;
 import sheep.game.Game;
 import android.app.Activity;
@@ -12,6 +12,7 @@ public class MyActivity extends Activity {
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
 
+        //Remove title from screen
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         //Create the game
@@ -22,6 +23,5 @@ public class MyActivity extends Activity {
 
         //View the game
         setContentView(game);
-//        game.setBackgroundColor(Color.TRANSPARENT);
     }
 }

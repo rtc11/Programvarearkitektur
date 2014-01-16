@@ -26,7 +26,7 @@ public class GameLayer extends Layer {
     @Override
     public void draw(Canvas canvas, BoundingBox box) {
         this.helicopter.draw(canvas);
-        this.level.draw(canvas);
+//        this.level.draw(canvas);
     }
 
     public Helicopter getHelicopter(){

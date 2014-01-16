@@ -11,12 +11,15 @@ public class Level{
     private int width, height;
 
     public Level(){
-
         this.width = 1000;
         this.height = 1000;
     }
 
-    public void draw(Canvas canvas){
+    public int getWidth() {
+        return width;
+    }
 
+    public int getHeight() {
+        return height;
     }
 }
