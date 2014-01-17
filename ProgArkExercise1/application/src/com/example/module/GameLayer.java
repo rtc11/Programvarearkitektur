@@ -33,7 +33,7 @@ public class GameLayer extends Layer {
         return this.helicopter;
     }
 
-    public Level returnLevel(){
+    public Level getLevel(){
         return this.level;
     }
 }
