@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="sheep">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/ProgArkExercise1/application/libs/sheep.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
