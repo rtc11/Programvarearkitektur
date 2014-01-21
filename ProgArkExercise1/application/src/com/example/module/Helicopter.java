@@ -17,7 +17,8 @@ public class Helicopter extends Sprite {
 
     public Helicopter(Image img){
         super(img);
-        setPosition(100.0f, 900.0f);
+        setPosition(500.0f, 700.0f);
+        setScale(0.2f, 0.2f);
     }
 
     @Override
