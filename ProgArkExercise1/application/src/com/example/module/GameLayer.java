@@ -14,7 +14,15 @@ public class GameLayer extends Layer {
     private Level level;
 
     public GameLayer(){
-        this.helicopter = new Helicopter(new Image(R.drawable.helli));
+
+        Image[] imgs = {
+                new Image(R.drawable.helliright),
+                new Image(R.drawable.hellileft),
+                new Image(R.drawable.helliup),
+                new Image(R.drawable.hellidown)
+        };
+
+        this.helicopter = new Helicopter(imgs);
         this.level = new Level();
     }
 
