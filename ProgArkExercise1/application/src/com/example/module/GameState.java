@@ -36,7 +36,7 @@ public class GameState extends State implements TouchListener {
 
     @Override
     public void draw (Canvas canvas){
-        canvas.drawColor(Color.WHITE);
+        canvas.drawColor(Color.BLACK);
         world.draw(canvas);
         debugInfo.draw(canvas);
     }
@@ -67,24 +67,24 @@ public class GameState extends State implements TouchListener {
             if(diffX < 0){
                 stopHelicopterMovement();
                 layer.getHelicopter().moveLeft(true);
-                layer.getHelicopter().setDirection(1);
+//                layer.getHelicopter().setDirection(1);
             }
             else{
                 stopHelicopterMovement();
                 layer.getHelicopter().moveRight(true);
-                layer.getHelicopter().setDirection(0);
+//                layer.getHelicopter().setDirection(0);
             }
         }
         else if (Math.abs(diffX) < Math.abs(diffY)){
             if(diffY < 0){
                 stopHelicopterMovement();
                 layer.getHelicopter().moveUp(true);
-                layer.getHelicopter().setDirection(2);
+//                layer.getHelicopter().setDirection(2);
             }
             else{
                 stopHelicopterMovement();
                 layer.getHelicopter().moveDown(true);
-                layer.getHelicopter().setDirection(3);
+//                layer.getHelicopter().setDirection(3);
             }
         }
         else{

@@ -20,10 +20,19 @@ public class GameLayer extends Layer {
                 new Image(R.drawable.hellileft),
                 new Image(R.drawable.helliup),
                 new Image(R.drawable.hellidown)
+
+        };
+         Image[] animation = {
+                 new Image(R.drawable.left1),
+                 new Image(R.drawable.left2),
+                 new Image(R.drawable.left3),
+                 new Image(R.drawable.left4)
         };
 
-        this.helicopter = new Helicopter(imgs);
+        this.helicopter = new Helicopter(animation);
         this.level = new Level();
+
+
     }
 
     @Override

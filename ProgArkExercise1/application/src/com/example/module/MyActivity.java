@@ -4,6 +4,7 @@ import android.view.Window;
 import sheep.game.Game;
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 
 public class MyActivity extends Activity {
     /**
@@ -18,10 +19,12 @@ public class MyActivity extends Activity {
         //Create the game
         Game game = new Game(this, null);
 
+
         //Push the main state
         game.pushState(new GameState());
 
         //View the game
         setContentView(game);
+
     }
 }

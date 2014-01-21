@@ -15,15 +15,23 @@ public class Helicopter extends Sprite {
     private boolean moveRight = false;
     private boolean moveDown = false;
 
-    private static final float velocity = 150.0f;
+    private static final float velocity = 300.0f;
     private Image[] imgs;
-    private int current = 0;
+
+    //when not using animation////////
+    private int current = 0;        //
+    //////////////////////////////////
+
+    //when using animation/////////////////////////
+    private float tick = 0f;                     //
+    private float timeLeft = 0f;                 //
+    private int frameCount = 4, currentFrame = 0;//
+    ///////////////////////////////////////////////
 
     public Helicopter(Image[] imgs){
         super(imgs[0]);
         this.imgs = imgs;
         setPosition(500.0f, 700.0f);
-        setScale(0.2f, 0.2f);
     }
 
     /**
@@ -43,9 +51,14 @@ public class Helicopter extends Sprite {
 
     @Override
     public void update(float dt){
-        super.update(dt);
 
-        setView((SpriteView)imgs[current]);
+        timeLeft += dt;
+        if(timeLeft >= tick){
+            currentFrame = (currentFrame + 1) % frameCount;
+            setView((SpriteView)imgs[currentFrame]);
+            timeLeft -= tick;
+        }
+
 
         float x = getX();
         float y = getY();
@@ -67,6 +80,7 @@ public class Helicopter extends Sprite {
             setPosition(x, y + dy);
         }
 
+        super.update(dt);
     }
 
     public void moveLeft(boolean move){
