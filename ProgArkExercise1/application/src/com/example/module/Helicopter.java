@@ -16,7 +16,7 @@ public class Helicopter extends Sprite {
     private boolean moveDown = false;
 
     private static final float velocity = 300.0f;
-    private Image[] imgs;
+    private Image[] imgs;   //TODO:might remove this
 
     //when not using animation////////
     private int current = 0;        //
@@ -65,19 +65,43 @@ public class Helicopter extends Sprite {
 
         if(moveLeft){
             float dx = dt * velocity;
-            setPosition(x - dx, y);
+            if (x <= 0) {
+                stopHelicopterMovement();
+                moveRight(true);
+            }
+            else{
+                setPosition(x - dx, y);
+            }
         }
         if(moveRight){
             float dx = dt * velocity;
-            setPosition(x + dx, y);
+            if (x >= MyActivity.WIDHT) {
+                stopHelicopterMovement();
+                moveLeft(true);
+            }
+            else {
+                setPosition(x + dx, y);
+            }
         }
         if(moveUp){
             float dy = dt * velocity;
-            setPosition(x, y - dy);
+            if (y <= 0) {
+                stopHelicopterMovement();
+                moveDown(true);
+            }
+            else {
+                setPosition(x, y - dy);
+            }
         }
         if(moveDown){
             float dy = dt * velocity;
-            setPosition(x, y + dy);
+            if (y >= MyActivity.HEIGHT) {
+                stopHelicopterMovement();
+                moveUp(true);
+            }
+            else {
+                setPosition(x, y + dy);
+            }
         }
 
         super.update(dt);
@@ -97,5 +121,12 @@ public class Helicopter extends Sprite {
 
     public void moveDown(boolean move){
         moveDown = move;
+    }
+
+    public void stopHelicopterMovement(){
+        moveLeft(false);
+        moveRight(false);
+        moveUp(false);
+        moveDown(false);
     }
 }

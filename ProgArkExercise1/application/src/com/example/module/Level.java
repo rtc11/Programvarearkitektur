@@ -16,6 +16,7 @@ public class Level{
     public Level(){
         this.width = 768;
         this.height = 1184;
+
     }
 
     public void draw(Canvas canvas) {
