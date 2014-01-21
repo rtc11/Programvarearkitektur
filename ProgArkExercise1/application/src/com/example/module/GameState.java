@@ -1,10 +1,17 @@
 package com.example.module;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.util.Log;
+import android.view.Display;
 import android.view.KeyEvent;
+import android.view.Window;
+import android.view.WindowManager;
+
 import sheep.game.Camera;
+import sheep.game.Sprite;
 import sheep.game.State;
 import sheep.game.World;
 import sheep.input.KeyboardListener;
@@ -18,6 +25,9 @@ public class GameState extends State implements KeyboardListener{
     private World world;
     private GameLayer layer;
     private DebugInfo debugInfo;
+
+
+    private Sprite westWall, eastWall, northWall, southWall;
 
     public GameState (){
 
@@ -34,11 +44,21 @@ public class GameState extends State implements KeyboardListener{
 
         //Add keyboard listener
         this.addKeyboardListener(this);
+
+        //Get the dimensions of the screen
+        Context context = getGame().getContext();
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+
+        Point point = new Point();
+        display.getSize(point);
+        int width = point.x;
+        int height = point.y;
     }
 
     @Override
     public void draw (Canvas canvas){
-        moveCamera(canvas);
+//        moveCamera(canvas);
         canvas.drawColor(Color.WHITE);
         world.draw(canvas);
         debugInfo.draw(canvas);
