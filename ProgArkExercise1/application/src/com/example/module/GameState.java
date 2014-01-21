@@ -12,6 +12,7 @@ import sheep.game.Sprite;
 import sheep.game.State;
 import sheep.game.World;
 import sheep.input.TouchListener;
+import sheep.math.Vector2;
 
 /**
  * Created by tordly on 15.01.14.
@@ -78,39 +79,10 @@ public class GameState extends State implements TouchListener {
         endY = me.getY();
         float diffX = endX - startX;
         float diffY = endY - startY;
-        
-        //Check if it is X axis or Y axis movement
-        if(Math.abs(diffX) > Math.abs(diffY)){
-            if(diffX < 0){
-//                layer.getHelicopter().stopHelicopterMovement();
-//                layer.getHelicopter().moveLeft(true);
-                layer.getHelicopter().setOrientation(0f);
-            }
-            else{
-//                layer.getHelicopter().stopHelicopterMovement();
-//                layer.getHelicopter().moveRight(true);
-                layer.getHelicopter().setOrientation(180f);
-            }
-        }
-        else if (Math.abs(diffX) < Math.abs(diffY)){
-            if(diffY < 0){
-//                layer.getHelicopter().stopHelicopterMovement();
-//                layer.getHelicopter().moveUp(true);
-                layer.getHelicopter().setOrientation(90f);
-            }
-            else{
-//                layer.getHelicopter().stopHelicopterMovement();
-//                layer.getHelicopter().moveDown(true);
-                layer.getHelicopter().setOrientation(270f);
-            }
-        }
-        else{
-            layer.getHelicopter().stopHelicopterMovement();
-        }
-        startX = 0;
-        endX = 0;
-        startY = 0;
-        endY = 0;
+
+        layer.getHelicopter().setSpeed(diffX % 30, diffY % 30);
+
+//        layer.getHelicopter().setOrientation((float)Math.atan((endX - startX)/(endY - startY)));
 
         return false;
     }
