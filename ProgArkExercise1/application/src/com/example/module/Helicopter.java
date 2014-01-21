@@ -19,11 +19,7 @@ public class Helicopter extends Sprite {
     private boolean moveDown = false;
 
     private static final float velocity = 300.0f;
-    private Image[] imgs;   //TODO:might remove this
-
-    //when not using animation////////
-    private int current = 0;        //
-    //////////////////////////////////
+    private Image[] imgs;
 
     //when using animation/////////////////////////
     private float tick = 0f;                     //
@@ -36,16 +32,6 @@ public class Helicopter extends Sprite {
         this.imgs = imgs;
         setPosition(500.0f, 700.0f);
         setSpeed(5, 15);
-    }
-
-    /**
-     * 0 - right
-     * 1 - left
-     * 2 - up
-     * 3 - down
-     */
-    public void setDirection(int dir){
-        current = dir;
     }
 
     @Override
