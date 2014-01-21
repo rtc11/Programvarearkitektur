@@ -1,4 +1,4 @@
-package com.example.module;
+package com.example.Task2;
 
 import sheep.game.Sprite;
 import sheep.game.SpriteContainer;
@@ -52,12 +52,12 @@ public class Helicopter extends Sprite {
     @Override
     public void update(float dt){
 
-//        timeLeft += dt;
-//        if(timeLeft >= tick){
-//            currentFrame = (currentFrame + 1) % frameCount;
-//            setView((SpriteView)imgs[currentFrame]);
-//            timeLeft -= tick;
-//        }
+        timeLeft += dt;
+        if(timeLeft >= tick){
+            currentFrame = (currentFrame + 1) % frameCount;
+            setView((SpriteView)imgs[currentFrame]);
+            timeLeft -= tick;
+        }
 
 
         float x = getX();
@@ -75,7 +75,7 @@ public class Helicopter extends Sprite {
         }
         if(moveRight){
             float dx = dt * velocity;
-            if (x >= MyActivity.WIDHT) {
+            if (x >= Task2Activity.WIDHT) {
                 stopHelicopterMovement();
                 moveLeft(true);
             }
@@ -95,7 +95,7 @@ public class Helicopter extends Sprite {
         }
         if(moveDown){
             float dy = dt * velocity;
-            if (y >= MyActivity.HEIGHT) {
+            if (y >= Task2Activity.HEIGHT) {
                 stopHelicopterMovement();
                 moveUp(true);
             }

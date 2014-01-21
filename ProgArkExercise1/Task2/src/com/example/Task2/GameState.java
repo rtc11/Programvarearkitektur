@@ -1,14 +1,12 @@
-package com.example.module;
+package com.example.Task2;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.view.MotionEvent;
 import android.graphics.Point;
-import android.util.Log;
 import android.view.Display;
+import android.view.MotionEvent;
 import android.view.WindowManager;
-import sheep.game.Sprite;
 import sheep.game.State;
 import sheep.game.World;
 import sheep.input.TouchListener;
@@ -84,24 +82,24 @@ public class GameState extends State implements TouchListener {
             if(diffX < 0){
                 layer.getHelicopter().stopHelicopterMovement();
                 layer.getHelicopter().moveLeft(true);
-                layer.getHelicopter().setDirection(1);
+//                layer.getHelicopter().setDirection(1);
             }
             else{
                 layer.getHelicopter().stopHelicopterMovement();
                 layer.getHelicopter().moveRight(true);
-                layer.getHelicopter().setDirection(0);
+//                layer.getHelicopter().setDirection(0);
             }
         }
         else if (Math.abs(diffX) < Math.abs(diffY)){
             if(diffY < 0){
                 layer.getHelicopter().stopHelicopterMovement();
                 layer.getHelicopter().moveUp(true);
-                layer.getHelicopter().setDirection(2);
+//                layer.getHelicopter().setDirection(2);
             }
             else{
                 layer.getHelicopter().stopHelicopterMovement();
                 layer.getHelicopter().moveDown(true);
-                layer.getHelicopter().setDirection(3);
+//                layer.getHelicopter().setDirection(3);
             }
         }
         else{

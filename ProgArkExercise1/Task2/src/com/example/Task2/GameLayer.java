@@ -1,4 +1,4 @@
-package com.example.module;
+package com.example.Task2;
 
 import android.graphics.Canvas;
 import sheep.game.Layer;
@@ -29,7 +29,7 @@ public class GameLayer extends Layer {
                  new Image(R.drawable.left4)
         };
 
-        this.helicopter = new Helicopter(imgs);
+        this.helicopter = new Helicopter(animation);
         this.level = new Level();
 
 
