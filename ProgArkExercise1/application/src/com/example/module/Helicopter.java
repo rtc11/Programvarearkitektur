@@ -31,7 +31,7 @@ public class Helicopter extends Sprite {
         super(imgs[0]);
         this.imgs = imgs;
         setPosition(500.0f, 700.0f);
-        setSpeed(1, 3);
+        setSpeed(5, 15);
     }
 
     @Override
