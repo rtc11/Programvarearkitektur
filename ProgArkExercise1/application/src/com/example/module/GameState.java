@@ -84,24 +84,24 @@ public class GameState extends State implements TouchListener {
             if(diffX < 0){
                 layer.getHelicopter().stopHelicopterMovement();
                 layer.getHelicopter().moveLeft(true);
-                layer.getHelicopter().setDirection(1);
+//                layer.getHelicopter().setDirection(1);
             }
             else{
                 layer.getHelicopter().stopHelicopterMovement();
                 layer.getHelicopter().moveRight(true);
-                layer.getHelicopter().setDirection(0);
+//                layer.getHelicopter().setDirection(0);
             }
         }
         else if (Math.abs(diffX) < Math.abs(diffY)){
             if(diffY < 0){
                 layer.getHelicopter().stopHelicopterMovement();
                 layer.getHelicopter().moveUp(true);
-                layer.getHelicopter().setDirection(2);
+//                layer.getHelicopter().setDirection(2);
             }
             else{
                 layer.getHelicopter().stopHelicopterMovement();
                 layer.getHelicopter().moveDown(true);
-                layer.getHelicopter().setDirection(3);
+//                layer.getHelicopter().setDirection(3);
             }
         }
         else{

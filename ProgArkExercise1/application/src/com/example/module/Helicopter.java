@@ -52,13 +52,12 @@ public class Helicopter extends Sprite {
     @Override
     public void update(float dt){
 
-//        timeLeft += dt;
-//        if(timeLeft >= tick){
-//            currentFrame = (currentFrame + 1) % frameCount;
-//            setView((SpriteView)imgs[currentFrame]);
-//            timeLeft -= tick;
-//        }
-
+        timeLeft += dt;
+        if(timeLeft >= tick){
+            currentFrame = (currentFrame + 1) % frameCount;
+            setView((SpriteView)imgs[currentFrame]);
+            timeLeft -= tick;
+        }
 
         float x = getX();
         float y = getY();
