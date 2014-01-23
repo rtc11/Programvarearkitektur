@@ -36,8 +36,8 @@ public class DebugInfo {
 
     public void draw(Canvas canvas) {
         strings.add("FPS: " + framesLastSecond);
-        strings.add("Cap-X:" + gameLayer.getHelicopter().getX());
-        strings.add("Cap-Y:" + gameLayer.getHelicopter().getY());
+        strings.add("Cap-X:" + gameLayer.getBall().getX());
+        strings.add("Cap-Y:" + gameLayer.getBall().getY());
 
 
         for ( int i = 0; i < strings.size(); i++ ) {
