@@ -1,5 +1,6 @@
 package com.example.TaskThree;
 
+import android.util.Log;
 import sheep.collision.CollisionListener;
 import sheep.game.Sprite;
 import sheep.graphics.Image;
@@ -17,8 +18,6 @@ public class Token extends Sprite implements CollisionListener {
 
         this.width = image.getWidth();
         this.height = image.getHeight();
-
-        super.setShape(width, height);
     }
 
     public float getHeight(){
@@ -31,6 +30,6 @@ public class Token extends Sprite implements CollisionListener {
 
     @Override
     public void collided(Sprite sprite, Sprite sprite2) {
-
+          Log.i("COLLISION", "TOKEN");
     }
 }

@@ -25,6 +25,8 @@ public class Ball extends Token{
         super(imgs);
         setPosition(500.0f, 700.0f);
         setSpeed(5, 15);
+        setGroup(5);
+        setMask(2 | 3);
     }
 
 

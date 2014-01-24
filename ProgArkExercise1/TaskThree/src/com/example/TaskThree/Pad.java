@@ -16,7 +16,8 @@ public class Pad extends Token{
     public Pad(Image imgs){
         super(imgs);
         setPosition(300.0f, 700.0f);
-
+        setGroup(1);
+        setMask(3 | 4);
     }
 
     @Override

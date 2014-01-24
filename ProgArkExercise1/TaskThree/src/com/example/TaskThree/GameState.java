@@ -90,6 +90,7 @@ public class GameState extends State implements TouchListener, CollisionListener
     public boolean onTouchMove(MotionEvent me){
 
         layer.getPad().setPosition(300, me.getY());
+        layer.getPad2().setPosition(300, me.getX());
         return false;
     }
 

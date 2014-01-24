@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class GameLayer extends Layer {
 
     private Pad pad;
+    private Pad pad2;
     private Ball ball;
     private Level level;
     private ArrayList<Token> tokens;
@@ -22,11 +23,13 @@ public class GameLayer extends Layer {
         Image img = new Image(R.drawable.left1);
         this.pad = new Pad(img);
         this.ball = new Ball(img);
+        this.pad2 = new Pad(img);
         this.level = new Level();
 
         tokens = new ArrayList<Token>();
         tokens.add(pad);
         tokens.add(ball);
+        tokens.add(pad2);
     }
 
     public ArrayList<Token> getTokens(){
@@ -37,12 +40,14 @@ public class GameLayer extends Layer {
     public void update(float dt) {
         this.pad.update(dt);
         this.ball.update(dt);
+        this.pad2.update(dt);
     }
 
     @Override
     public void draw(Canvas canvas, BoundingBox box) {
         this.pad.draw(canvas);
         this.ball.draw(canvas);
+        this.pad2.draw(canvas);
     }
 
     public Pad getPad(){
@@ -51,6 +56,9 @@ public class GameLayer extends Layer {
 
     public Ball getBall(){
             return this.ball;
+    }
+    public Pad getPad2(){
+            return this.pad2;
     }
 
     public Level getLevel(){
