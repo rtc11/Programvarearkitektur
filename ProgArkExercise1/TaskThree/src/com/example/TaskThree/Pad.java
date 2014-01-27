@@ -13,11 +13,9 @@ public class Pad extends Token{
 
     private static final float velocity = 300.0f;
 
-    public Pad(Image imgs){
+    public Pad(Image imgs, float y){
         super(imgs);
-        setPosition(300.0f, 700.0f);
-        setGroup(1);
-        setMask(3 | 4);
+        setPosition(300.0f, y);
     }
 
     @Override
@@ -28,10 +26,5 @@ public class Pad extends Token{
     @Override
     public void update(float dt){
         super.update(dt);
-    }
-
-    @Override
-    public void collided(Sprite sprite, Sprite sprite2) {
-        Log.i("COLLISION", "PAD");
     }
 }

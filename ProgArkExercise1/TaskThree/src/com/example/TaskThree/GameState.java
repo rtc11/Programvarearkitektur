@@ -8,76 +8,91 @@ import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.WindowManager;
-import sheep.collision.CollisionLayer;
-import sheep.collision.CollisionListener;
 import sheep.game.Sprite;
 import sheep.game.State;
 import sheep.game.World;
+import sheep.graphics.Image;
 import sheep.input.TouchListener;
 import sheep.math.Vector2;
 
 /**
  * Created by tordly on 15.01.14.
  */
-public class GameState extends State implements TouchListener, CollisionListener {
+public class GameState extends State implements TouchListener {
 
-    private World world;
-    private GameLayer layer;
     private DebugInfo debugInfo;
-    private float startX, startY, endX, endY;
-    private CollisionLayer collisionLayer;
+    private Ball ball;
+    private Pad pad;
+    private Pad pad2;
+    private int height, width;
 
     public GameState (){
 
-        //Create the game world
-        world = new World();
-
-        //Create the layer
-        layer = new GameLayer();
-
-        //Add the layer to the world
-        world.addLayer(layer);
-
-        debugInfo = new DebugInfo(layer);
-
-        //Add collision listeners
-        collisionLayer = new CollisionLayer();
-        for(Token token : layer.getTokens()){
-            collisionLayer.addSprite(token);
-            token.addCollisionListener(token);
-            token.addCollisionListener(this);
-        }
+        debugInfo = new DebugInfo(this);
+        Image img = new Image(R.drawable.left1);
+        this.pad = new Pad(img, 900f);
+        this.pad2 = new Pad(img, 50f);
+        this.ball = new Ball(img);
 
         this.addTouchListener(this);
     }
 
     @Override
     public void draw (Canvas canvas){
+        width = canvas.getWidth();
+        height = canvas.getHeight();
         canvas.drawColor(Color.BLACK);
-        world.draw(canvas);
         debugInfo.draw(canvas);
 
         //Get the dimensions of the screen
         Context context = getGame().getContext();
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
-
         Point point = new Point();
         display.getSize(point);
-        int width = point.x;
-        int height = point.y;
+
+        ball.draw(canvas);
+        pad.draw(canvas);
+        pad2.draw(canvas);
     }
 
     @Override
     public void update(float ft){
-        world.update(ft);
         debugInfo.update(ft);
+        ball.update(ft);
+        pad.update(ft);
+        pad2.update(ft);
+
+        //CHECK IF IT COLLIDES WITH WALL
+        if(ball.getX()>(width-ball.getWidth()) || ball.getX()<0){
+            ball.setSpeed(-ball.getSpeed().getX(), ball.getSpeed().getY());
+        }
+        if(ball.getY()>(height-ball.getHeight()) || ball.getY()<0){
+            ball.setSpeed(ball.getSpeed().getX(), -ball.getSpeed().getY());
+        }
+
+        //CHECK IF IT COLLIDES WITH PAD
+        if(ball.collides(pad)){
+            Vector2 v = ball.getSpeed();
+            float speedx = v.getX();
+            float speedy = v.getY();
+            speedx *= -1;
+            speedy *= -1;
+            ball.setSpeed(new Vector2(speedx, speedy));
+        }
+
+        if(ball.collides(pad2)){
+            Vector2 v = ball.getSpeed();
+            float speedx = v.getX();
+            float speedy = v.getY();
+            speedx *= -1;
+            speedy *= -1;
+            ball.setSpeed(new Vector2(speedx, speedy));
+        }
     }
 
     @Override
     public boolean onTouchDown(MotionEvent me){
-        startX = me.getX();
-        startY = me.getY();
         return false;
     }
 
@@ -89,33 +104,20 @@ public class GameState extends State implements TouchListener, CollisionListener
     @Override
     public boolean onTouchMove(MotionEvent me){
 
-        layer.getPad().setPosition(300, me.getY());
-        layer.getPad2().setPosition(300, me.getX());
+        if(me.getY() > height/2){
+            pad.setPosition(me.getX(), 900);
+        }
+        if(me.getY() < height/2){
+            pad2.setPosition(me.getX(), 50);
+        }
         return false;
     }
 
-    @Override
-    public void collided(Sprite sprite, Sprite sprite2) {
-        Log.i("COLLISION", "GAME STATE");
-        Ball ball;
-        Pad pad;
+    public Ball getBall(){
+        return this.ball;
+    }
 
-        if(sprite instanceof Ball && sprite2 instanceof Pad){
-            ball = (Ball)sprite;
-            pad = (Pad)sprite2;
-        }
-        else{
-            ball = (Ball)sprite2;
-            pad = (Pad)sprite;
-        }
-
-        Vector2 v = ball.getSpeed();
-        float speedx = v.getX();
-        float speedy = v.getY();
-        speedx *= -1;
-        float x = ball.getX();
-        float y = ball.getY();
-        ball.setSpeed(new Vector2(speedx, speedy));
-        ball.setPosition(new Vector2(x, y));
+    public Pad getPad(){
+        return this.pad;
     }
 }

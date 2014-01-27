@@ -8,7 +8,7 @@ import sheep.graphics.Image;
 /**
  * Created by tordly on 23.01.14.
  */
-public class Token extends Sprite implements CollisionListener {
+public class Token extends Sprite {
 
     private float width = 0;
     private float height = 0;
@@ -28,8 +28,4 @@ public class Token extends Sprite implements CollisionListener {
         return this.width;
     }
 
-    @Override
-    public void collided(Sprite sprite, Sprite sprite2) {
-          Log.i("COLLISION", "TOKEN");
-    }
 }

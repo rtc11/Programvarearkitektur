@@ -10,14 +10,14 @@ import java.util.ArrayList;
  */
 public class DebugInfo {
     private ArrayList<String> strings;
-    private GameLayer gameLayer;
     private int framesLastSecond;
     private int framesThisSecond;
     private int msCounter;
+    GameState gameLayer;
 
-    public DebugInfo(GameLayer gameLayer) {
-        strings = new ArrayList<String>();
+    public DebugInfo(GameState gameLayer) {
         this.gameLayer = gameLayer;
+        strings = new ArrayList<String>();
         framesLastSecond = 0;
         framesThisSecond = 0;
         msCounter = 0;
@@ -38,6 +38,8 @@ public class DebugInfo {
         strings.add("FPS: " + framesLastSecond);
         strings.add("Cap-X:" + gameLayer.getBall().getX());
         strings.add("Cap-Y:" + gameLayer.getBall().getY());
+        strings.add("NORTH: " + gameLayer.getBall().getNorth());
+        strings.add("SOUTH: " + gameLayer.getBall().getSouth());
 
 
         for ( int i = 0; i < strings.size(); i++ ) {

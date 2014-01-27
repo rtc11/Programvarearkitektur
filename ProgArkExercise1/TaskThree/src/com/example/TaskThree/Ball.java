@@ -20,13 +20,13 @@ import sheep.math.Vector2;
 public class Ball extends Token{
 
     private static final float velocity = 300.0f;
+    private int pointNorth = 0;
+    private int pointSourth = 0;
 
     public Ball(Image imgs){
         super(imgs);
         setPosition(500.0f, 700.0f);
         setSpeed(5, 15);
-        setGroup(5);
-        setMask(2 | 3);
     }
 
 
@@ -55,8 +55,17 @@ public class Ball extends Token{
         if (x + speedx < 0 || x + speedx > MyActivity.WIDHT) {
             speedx *= -1;
         }
-        if (y + speedy < 0 || y + speedy > MyActivity.HEIGHT) {
+        if (y + speedy < 0) {
             speedy *= -1;
+            Log.i("POENG", "NORTH");
+            pointSourth++;
+
+        }
+
+        if(y + speedy >= 1000){
+            speedy *= -1;
+            Log.i("POENG", "SOUTH");
+            pointNorth++;
         }
 
         x += speedx;
@@ -66,8 +75,11 @@ public class Ball extends Token{
         ball.setPosition(new Vector2(x, y));
     }
 
-    @Override
-    public void collided(Sprite sprite, Sprite sprite2) {
-        Log.i("COLLISION", "BALL");
+    public int getSouth(){
+        return this.pointSourth;
+    }
+
+    public int getNorth(){
+        return this.pointNorth;
     }
 }
