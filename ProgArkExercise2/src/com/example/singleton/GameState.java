@@ -28,11 +28,17 @@ public class GameState extends State implements TouchListener {
 
     public GameState (){
 
-        debugInfo = new DebugInfo(this);
-        Image img = new Image(R.drawable.left1);
-        this.pad = new Pad(img, 900f);
-        this.pad2 = new Pad(img, 50f);
-        this.ball = new Ball(img);
+        debugInfo = DebugInfo.getInstance(this);
+
+        //Get or create instance 1 of Pad
+        pad = Pad.getInstance(1);
+        pad.setPosition(300.0f, 900.0f);
+
+        //Get or create instance 2 of Pad
+        pad2 = Pad.getInstance(2);
+        pad2.setPosition(300.0f, 50.0f);
+
+        ball = Ball.getInstance();
 
         this.addTouchListener(this);
     }
@@ -43,14 +49,6 @@ public class GameState extends State implements TouchListener {
         height = canvas.getHeight();
         canvas.drawColor(Color.BLACK);
         debugInfo.draw(canvas);
-
-        //Get the dimensions of the screen
-        Context context = getGame().getContext();
-        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        Display display = wm.getDefaultDisplay();
-        Point point = new Point();
-        display.getSize(point);
-
         ball.draw(canvas);
         pad.draw(canvas);
         pad2.draw(canvas);
@@ -74,20 +72,20 @@ public class GameState extends State implements TouchListener {
         //CHECK IF IT COLLIDES WITH PAD
         if(ball.collides(pad)){
             Vector2 v = ball.getSpeed();
-            float speedx = v.getX();
-            float speedy = v.getY();
-            speedx *= -1;
-            speedy *= -1;
-            ball.setSpeed(new Vector2(speedx, speedy));
+            float speedX = v.getX();
+            float speedY = v.getY();
+            speedX *= -1;
+            speedY *= -1;
+            ball.setSpeed(new Vector2(speedX, speedY));
         }
 
         if(ball.collides(pad2)){
             Vector2 v = ball.getSpeed();
-            float speedx = v.getX();
-            float speedy = v.getY();
-            speedx *= -1;
-            speedy *= -1;
-            ball.setSpeed(new Vector2(speedx, speedy));
+            float speedX = v.getX();
+            float speedY = v.getY();
+            speedX *= -1;
+            speedY *= -1;
+            ball.setSpeed(new Vector2(speedX, speedY));
         }
     }
 
@@ -104,9 +102,12 @@ public class GameState extends State implements TouchListener {
     @Override
     public boolean onTouchMove(MotionEvent me){
 
+        //If the south half part of the screen was touched
         if(me.getY() > height/2){
             pad.setPosition(me.getX(), 900);
         }
+
+        //If the north half part of the screen was touched
         if(me.getY() < height/2){
             pad2.setPosition(me.getX(), 50);
         }

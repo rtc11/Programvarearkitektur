@@ -9,7 +9,7 @@ import sheep.game.Game;
 
 public class MyActivity extends Activity {
 
-    public static int WIDHT = 0, HEIGHT = 0;
+    public static int WIDTH = 0, HEIGHT = 0;
     /**
      * Called when the activity is first created.
      */
@@ -22,7 +22,6 @@ public class MyActivity extends Activity {
         //Create the game
         Game game = new Game(this, null);
 
-
         //Push the main state
         game.pushState(new GameState());
 
@@ -30,13 +29,18 @@ public class MyActivity extends Activity {
         setContentView(game);
 
         //Get the dimensions of the screen
+        getScreenDimensions();
+
+    }
+
+    private void getScreenDimensions(){
         Display display = getWindowManager().getDefaultDisplay();
         Point point = new Point();
         display.getSize(point);
         int width = point.x;
         int height = point.y;
 
-        WIDHT = width;
+        WIDTH = width;
         HEIGHT = height;
     }
 }

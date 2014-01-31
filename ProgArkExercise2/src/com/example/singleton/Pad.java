@@ -1,21 +1,58 @@
 package com.example.singleton;
 
-import android.util.Log;
-import sheep.collision.CollisionListener;
-import sheep.game.Sprite;
 import sheep.game.SpriteContainer;
 import sheep.graphics.Image;
+import java.util.HashMap;
 
 /**
  * Created by tordly on 15.01.14.
  */
 public class Pad extends Token{
 
-    private static final float velocity = 300.0f;
+    private static volatile Pad instance = null;
+    private static volatile HashMap<Integer, Pad> instances = null;
 
-    public Pad(Image imgs, float y){
-        super(imgs);
-        setPosition(300.0f, y);
+    private Pad(Image img){
+        super(img);
+    }
+
+    /**
+     * Get the instance of Pad with the name 'number'.
+     * @param number - There can be more than once instance
+     * 'number' is the name of the instance we want to return
+     * @return the current instantiation of Pad or creates a new one
+     */
+    public static Pad getInstance(int number){
+
+        //If no instances have been made before
+        if(instance == null){
+            synchronized (Pad.class){
+                if(instance == null){
+                    Image img = new Image(R.drawable.left1);
+                    instance = new Pad(img);
+
+                    instances = new HashMap<Integer, Pad>();
+                    instances.put(Integer.valueOf(number), instance);
+                }
+            }
+        }
+
+        //There does exist at least 1 instance
+        else{
+            synchronized (Pad.class){
+
+                //If no instance with name 'number' exist, create it
+                if(!instances.containsValue(number)){
+                    Image img = new Image(R.drawable.left1);
+                    instance = new Pad(img);
+
+                    instances.put(Integer.valueOf(number), instance);
+                }
+            }
+        }
+
+        //Return the instance with name 'number'
+        return instances.get((Integer)number);
     }
 
     @Override
