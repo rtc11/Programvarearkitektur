@@ -32,11 +32,11 @@ public class GameState extends State implements TouchListener {
 
         //Get or create instance 1 of Pad
         pad = Pad.getInstance(1);
-        pad.setPosition(300.0f, 900.0f);
+        pad.setPosition(300.0f, 900.0f);    //TODO: this number shouyld be relative to the screen size
 
         //Get or create instance 2 of Pad
         pad2 = Pad.getInstance(2);
-        pad2.setPosition(300.0f, 50.0f);
+        pad2.setPosition(300.0f, 50.0f);    //TODO: this number shouyld be relative to the screen size
 
         ball = Ball.getInstance();
 
@@ -104,12 +104,12 @@ public class GameState extends State implements TouchListener {
 
         //If the south half part of the screen was touched
         if(me.getY() > height/2){
-            pad.setPosition(me.getX(), 900);
+            pad.setPosition(me.getX(), 900);    //TODO: this number shouyld be relative to the screen size
         }
 
         //If the north half part of the screen was touched
         if(me.getY() < height/2){
-            pad2.setPosition(me.getX(), 50);
+            pad2.setPosition(me.getX(), 50);    //TODO: this number shouyld be relative to the screen size
         }
         return false;
     }

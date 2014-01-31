@@ -39,8 +39,6 @@ public class Ball extends Token{
         return instance;
     }
 
-
-
     @Override
     public void setParent(SpriteContainer parent) {
         super.setParent(parent);
@@ -54,35 +52,33 @@ public class Ball extends Token{
 
     public void move(Ball ball) {
 
-        float x = ball.getX();
-        float y = ball.getY();
+        float xPos = ball.getX();
+        float yPos = ball.getY();
 
-        Vector2 v = getSpeed();
+        Vector2 velocity = getSpeed();
+        float xSpeed = velocity.getX();
+        float ySpeed = velocity.getY();
 
-        float speedx = v.getX();
-        float speedy = v.getY();
-
-        if (x + speedx < 0 || x + speedx > MyActivity.WIDTH) {
-            speedx *= -1;
+        if (xPos + xSpeed < 0 || xPos + xSpeed > MyActivity.WIDTH) {
+            xSpeed *= -1;
         }
-        if (y + speedy < 0) {
-            speedy *= -1;
-            Log.i("POENG", "NORTH");
+
+        //If the ball hits the north wall
+        if (yPos + ySpeed < 0) {
+            ySpeed *= -1;
             pointSouth++;
-
         }
 
-        if(y + speedy >= 1000){
-            speedy *= -1;
-            Log.i("POENG", "SOUTH");
+        //if the ball hits the south wall
+        if(yPos + ySpeed >= 1000){ //TODO: this number should be relative to the screen size
+            ySpeed *= -1;
             pointNorth++;
         }
 
-        x += speedx;
-        y += speedy;
-
-        ball.setSpeed(new Vector2(speedx, speedy));
-        ball.setPosition(new Vector2(x, y));
+        xPos += xSpeed;
+        yPos += ySpeed;
+        ball.setSpeed(new Vector2(xSpeed, ySpeed));
+        ball.setPosition(new Vector2(xPos, yPos));
     }
 
     public int getSouth(){
