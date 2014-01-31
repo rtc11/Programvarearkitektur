@@ -22,32 +22,27 @@ public class Pad extends Token{
      * 'number' is the name of the instance we want to return
      * @return the current instantiation of Pad or creates a new one
      */
-    public static Pad getInstance(int number){
+    public static synchronized Pad getInstance(int number){
 
         //If no instances have been made before
         if(instance == null){
-            synchronized (Pad.class){
-                if(instance == null){
-                    Image img = new Image(R.drawable.left1);
-                    instance = new Pad(img);
+            Image img = new Image(R.drawable.left1);
+            instance = new Pad(img);
 
-                    instances = new HashMap<Integer, Pad>();
-                    instances.put(Integer.valueOf(number), instance);
-                }
-            }
+            //Create the Map and add the instance to the list of instances
+            instances = new HashMap<Integer, Pad>();
+            instances.put(Integer.valueOf(number), instance);
         }
 
         //There does exist at least 1 instance
-        else{
-            synchronized (Pad.class){
+        else {
 
-                //If no instance with name 'number' exist, create it
-                if(!instances.containsValue(number)){
-                    Image img = new Image(R.drawable.left1);
-                    instance = new Pad(img);
+            //If no instance with name 'number' exist, create it
+            if (!instances.containsValue(number)) {
+                Image img = new Image(R.drawable.left1);
+                instance = new Pad(img);
 
-                    instances.put(Integer.valueOf(number), instance);
-                }
+                instances.put(Integer.valueOf(number), instance);
             }
         }
 
