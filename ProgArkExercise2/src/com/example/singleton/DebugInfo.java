@@ -56,12 +56,8 @@ public class DebugInfo {
     }
 
     public void draw(Canvas canvas) {
-        strings.add("FPS: " + framesLastSecond);
-        strings.add("Cap-X:" + gameState.getBall().getX());
-        strings.add("Cap-Y:" + gameState.getBall().getY());
         strings.add("NORTH: " + gameState.getBall().getNorth());
         strings.add("SOUTH: " + gameState.getBall().getSouth());
-
 
         for ( int i = 0; i < strings.size(); i++ ) {
             String string = strings.get(i);

@@ -3,6 +3,7 @@ package com.example.singleton;
 import android.app.Activity;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 import android.view.Window;
 import sheep.game.Game;
@@ -42,5 +43,7 @@ public class MyActivity extends Activity {
 
         WIDTH = width;
         HEIGHT = height;
+
+        Log.i("SCREEN SIZE:", "WIDTH: " + width + ", HEIGHT: " + height);
     }
 }

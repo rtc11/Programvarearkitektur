@@ -13,22 +13,22 @@ import sheep.math.Vector2;
  */
 public class GameState extends State implements TouchListener {
 
+    private Image padImg = new Image(R.drawable.pad);
     private DebugInfo debugInfo;
+    private int height, width;
     private Ball ball;
     private Pad padSouth;
     private Pad padNorth;
-    private int height, width;
 
     public GameState (){
 
         //Get or create the singleton instance of DebugInfo
         debugInfo = DebugInfo.getInstance(this);
 
-        padSouth = new Pad(new Image(R.drawable.left1), 300.0f, 900.0f);
-        padNorth = new Pad(new Image(R.drawable.left1), 300.0f, 50.0f);
-
         //Get or create the singleton instance of DebugInfo
         ball = Ball.getInstance();
+        padSouth = new Pad(padImg, MyActivity.WIDTH/2, MyActivity.HEIGHT - ball.getHeight());
+        padNorth = new Pad(padImg, MyActivity.WIDTH/2, padNorth.getHeight());
 
         this.addTouchListener(this);
     }
@@ -38,10 +38,11 @@ public class GameState extends State implements TouchListener {
         width = canvas.getWidth();
         height = canvas.getHeight();
         canvas.drawColor(Color.BLACK);
+
         debugInfo.draw(canvas);
         ball.draw(canvas);
-        padSouth.draw(canvas);
         padNorth.draw(canvas);
+        padSouth.draw(canvas);
     }
 
     @Override
@@ -52,10 +53,10 @@ public class GameState extends State implements TouchListener {
         padNorth.update(ft);
 
         //CHECK IF IT COLLIDES WITH WALL
-        if(ball.getX()>(width-ball.getWidth()) || ball.getX()<0){
+        if(ball.getX()>(width-(ball.getWidth()/2)) || ball.getX()<0 + (ball.getWidth()/2)){
             ball.setSpeed(-ball.getSpeed().getX(), ball.getSpeed().getY());
         }
-        if(ball.getY()>(height-ball.getHeight()) || ball.getY()<0){
+        if(ball.getY()>(height-(ball.getHeight()/2)) || ball.getY()<0 + (ball.getHeight()/2)){
             ball.setSpeed(ball.getSpeed().getX(), -ball.getSpeed().getY());
         }
 
@@ -94,12 +95,12 @@ public class GameState extends State implements TouchListener {
 
         //If the south half part of the screen was touched
         if(me.getY() > height/2){
-            padSouth.setPosition(me.getX(), 900);    //TODO: this number shouyld be relative to the screen size
+            padSouth.setPosition(me.getX(), MyActivity.HEIGHT - ball.getHeight());
         }
 
         //If the north half part of the screen was touched
         if(me.getY() < height/2){
-            padNorth.setPosition(me.getX(), 50);    //TODO: this number shouyld be relative to the screen size
+            padNorth.setPosition(me.getX(), padNorth.getHeight());
         }
         return false;
     }

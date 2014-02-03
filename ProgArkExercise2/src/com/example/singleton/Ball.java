@@ -30,7 +30,7 @@ public class Ball extends Token{
         if(instance == null){
             synchronized (Ball.class){
                 if(instance == null){
-                    Image img = new Image(R.drawable.left1);
+                    Image img = new Image(R.drawable.ball);
                     instance = new Ball(img);
                 }
             }
@@ -63,13 +63,13 @@ public class Ball extends Token{
         }
 
         //If the ball hits the north wall
-        if (yPos + ySpeed < 0) {
+        if (yPos + ySpeed < 0 + (getHeight()/2)) {
             ySpeed *= -1;
             pointSouth++;
         }
 
         //if the ball hits the south wall
-        if(yPos + ySpeed >= 1000){ //TODO: this number should be relative to the screen size
+        if(yPos + ySpeed >= MyActivity.HEIGHT - getHeight()){
             ySpeed *= -1;
             pointNorth++;
         }
