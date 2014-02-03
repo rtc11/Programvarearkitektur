@@ -10,7 +10,6 @@ import sheep.math.Vector2;
  */
 public class Ball extends Token{
 
-    private static final float velocity = 300.0f;
     private static Ball instance = null;
     private int pointNorth = 0;
     private int pointSouth = 0;
@@ -22,7 +21,7 @@ public class Ball extends Token{
     }
     /**
      * Returns the Ball instance or creates a new one.
-     * Uses Singleton pattern for making sure
+     * Uses SINGLETON pattern for making sure
      * there is only one instance of this object
      * instantiated.
      * @return Ball instance
