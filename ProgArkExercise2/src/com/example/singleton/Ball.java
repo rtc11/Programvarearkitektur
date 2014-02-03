@@ -1,23 +1,26 @@
 package com.example.singleton;
 
-import android.util.Log;
 import sheep.game.SpriteContainer;
 import sheep.graphics.Image;
 import sheep.math.Vector2;
+import java.util.ArrayList;
+
 
 /**
  * Created by tordly on 15.01.14.
  */
-public class Ball extends Token{
+public class Ball extends Token implements Observable{
 
     private static Ball instance = null;
     private int pointNorth = 0;
     private int pointSouth = 0;
+    private ArrayList<Observer> observers;
 
     private Ball(Image imgs){
         super(imgs);
         setPosition(500.0f, 700.0f);
         setSpeed(5, 15);
+        observers = new ArrayList<Observer>();
     }
     /**
      * Returns the Ball instance or creates a new one.
@@ -66,12 +69,14 @@ public class Ball extends Token{
         if (yPos + ySpeed < 0 + (getHeight()/2)) {
             ySpeed *= -1;
             pointSouth++;
+            notifyObservers();
         }
 
         //if the ball hits the south wall
         if(yPos + ySpeed >= MyActivity.HEIGHT - getHeight()){
             ySpeed *= -1;
             pointNorth++;
+            notifyObservers();
         }
 
         xPos += xSpeed;
@@ -80,11 +85,20 @@ public class Ball extends Token{
         ball.setPosition(new Vector2(xPos, yPos));
     }
 
-    public int getSouth(){
-        return this.pointSouth;
+    @Override
+    public void registerObserver(Observer observer) {
+        observers.add(observer);
     }
 
-    public int getNorth(){
-        return this.pointNorth;
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for(Observer ob : observers){
+            ob.update(pointNorth, pointSouth);
+        }
     }
 }

@@ -6,7 +6,6 @@ import android.view.MotionEvent;
 import sheep.game.State;
 import sheep.graphics.Image;
 import sheep.input.TouchListener;
-import sheep.math.Vector2;
 
 /**
  * Created by tordly on 15.01.14.
@@ -20,10 +19,8 @@ public class GameState extends State implements TouchListener {
     private Pad padSouth = null;
     private Pad padNorth = null;
 
-    public GameState (){
 
-        //Get or create the singleton instance of DebugInfo
-        debugInfo = DebugInfo.getInstance(this);
+    public GameState (){
 
         //Get or create the singleton instance of DebugInfo
         ball = Ball.getInstance();
@@ -32,6 +29,12 @@ public class GameState extends State implements TouchListener {
         padNorth = new Pad(padImg, MyActivity.WIDTH/2, padSouth.getHeight());
 
         this.addTouchListener(this);
+
+        //Get or create the singleton instance of DebugInfo
+        debugInfo = DebugInfo.getInstance(this);
+
+        //Add dbugInfo as observer to the ball (observable)
+        ball.registerObserver(debugInfo);
     }
 
     @Override
@@ -99,4 +102,7 @@ public class GameState extends State implements TouchListener {
     public Ball getBall(){
         return this.ball;
     }
+
+
+
 }

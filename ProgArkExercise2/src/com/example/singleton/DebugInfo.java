@@ -9,14 +9,15 @@ import java.util.ArrayList;
 /**
  * Created by tordly on 17.01.14.
  */
-public class DebugInfo {
+public class DebugInfo implements Observer {
 
     private static DebugInfo instance = null;
     private ArrayList<String> strings;
     private int framesLastSecond;
     private int framesThisSecond;
     private int msCounter;
-    GameState gameState;
+    private GameState gameState;
+    private int scoreSouth = 0, scoreNorth = 0;
 
     private DebugInfo(GameState gameState) {
         this.gameState = gameState;
@@ -56,8 +57,8 @@ public class DebugInfo {
     }
 
     public void draw(Canvas canvas) {
-        strings.add("NORTH: " + gameState.getBall().getNorth());
-        strings.add("SOUTH: " + gameState.getBall().getSouth());
+        strings.add("NORTH: " + scoreNorth);
+        strings.add("SOUTH: " + scoreSouth);
 
         for ( int i = 0; i < strings.size(); i++ ) {
             String string = strings.get(i);
@@ -65,5 +66,11 @@ public class DebugInfo {
             canvas.drawText(string, 15, y, Color.GREEN);
         }
         strings = new ArrayList<String>();
+    }
+
+    @Override
+    public void update(int scoreNorth, int scoreSouth) {
+        this.scoreNorth = scoreNorth;
+        this.scoreSouth = scoreSouth;
     }
 }
