@@ -43,7 +43,5 @@ public class MyActivity extends Activity {
 
         WIDTH = width;
         HEIGHT = height;
-
-        Log.i("SCREEN SIZE:", "WIDTH: " + width + ", HEIGHT: " + height);
     }
 }

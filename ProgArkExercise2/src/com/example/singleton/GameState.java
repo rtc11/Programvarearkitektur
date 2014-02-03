@@ -14,11 +14,11 @@ import sheep.math.Vector2;
 public class GameState extends State implements TouchListener {
 
     private Image padImg = new Image(R.drawable.pad);
-    private DebugInfo debugInfo;
+    private DebugInfo debugInfo = null;
     private int height, width;
-    private Ball ball;
-    private Pad padSouth;
-    private Pad padNorth;
+    private Ball ball = null;
+    private Pad padSouth = null;
+    private Pad padNorth = null;
 
     public GameState (){
 
@@ -27,8 +27,9 @@ public class GameState extends State implements TouchListener {
 
         //Get or create the singleton instance of DebugInfo
         ball = Ball.getInstance();
+
         padSouth = new Pad(padImg, MyActivity.WIDTH/2, MyActivity.HEIGHT - ball.getHeight());
-        padNorth = new Pad(padImg, MyActivity.WIDTH/2, padNorth.getHeight());
+        padNorth = new Pad(padImg, MyActivity.WIDTH/2, padSouth.getHeight());
 
         this.addTouchListener(this);
     }
@@ -40,17 +41,17 @@ public class GameState extends State implements TouchListener {
         canvas.drawColor(Color.BLACK);
 
         debugInfo.draw(canvas);
-        ball.draw(canvas);
         padNorth.draw(canvas);
         padSouth.draw(canvas);
+        ball.draw(canvas);
     }
 
     @Override
     public void update(float ft){
         debugInfo.update(ft);
-        ball.update(ft);
         padSouth.update(ft);
         padNorth.update(ft);
+        ball.update(ft);
 
         //CHECK IF IT COLLIDES WITH WALL
         if(ball.getX()>(width-(ball.getWidth()/2)) || ball.getX()<0 + (ball.getWidth()/2)){
@@ -62,21 +63,11 @@ public class GameState extends State implements TouchListener {
 
         //CHECK IF IT COLLIDES WITH PAD
         if(ball.collides(padSouth)){
-            Vector2 v = ball.getSpeed();
-            float speedX = v.getX();
-            float speedY = v.getY();
-            speedX *= -1;
-            speedY *= -1;
-            ball.setSpeed(new Vector2(speedX, speedY));
+            ball.setSpeed(ball.getSpeed().getX(), -ball.getSpeed().getY());
         }
 
         if(ball.collides(padNorth)){
-            Vector2 v = ball.getSpeed();
-            float speedX = v.getX();
-            float speedY = v.getY();
-            speedX *= -1;
-            speedY *= -1;
-            ball.setSpeed(new Vector2(speedX, speedY));
+            ball.setSpeed(ball.getSpeed().getX(), -ball.getSpeed().getY());
         }
     }
 
